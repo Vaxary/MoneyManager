@@ -1,0 +1,5 @@
+"""Constants storing the names of tabs in the main window"""
+CHANGEWALLET_TABNAME = "Change Wallets"
+LISTENTRIES_TABNAME = "List"
+IO_TABNAME = "Export/Import"
+ADDENTRY_TABNAME = "Add Entry"

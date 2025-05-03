@@ -1,5 +1,6 @@
 """QStandardItemModel custom QStandardItem implementations"""
-from utils import QStandardItem, QVariant
+from PyQt6.QtCore import QVariant
+from PyQt6.QtGui import QStandardItem
 
 
 class NumStandardItem(QStandardItem):

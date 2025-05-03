@@ -62,8 +62,8 @@ def export_history_and_wallets(dest):
     history_and_wallet_dict={"wallet":data.walletList,
                              "history":entrylist}
     export_content = json.dumps(history_and_wallet_dict, indent=4)
-    with open(dest, 'w', encoding="utf-8") as walletfile:
-        walletfile.write(export_content)
+    with open(dest, 'w', encoding="utf-8") as export_file:
+        export_file.write(export_content)
 
 def import_exportfile(src):
     """Imports and loads data of exported persistent json file

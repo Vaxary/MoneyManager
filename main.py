@@ -1,7 +1,11 @@
 """Main window class and base functions of the app"""
-from utils import (Qt, QWidget, QApplication, QVBoxLayout, QMainWindow, QTableView,
-                   QStandardItemModel, QTabWidget,
-                   QAbstractItemView, tabnames, functions, data)
+from PyQt6.QtCore import Qt
+from PyQt6.QtGui import QStandardItemModel
+from PyQt6.QtWidgets import (
+    QMainWindow, QTableView, QTabWidget, QAbstractItemView, QWidget, QVBoxLayout, QApplication
+)
+
+from utils import (tabnames, functions, data)
 from utils.customitems import CaseInsensitiveStandardItem, NumStandardItem
 from view.addentry import AddEntryTab
 from view.changewallets import ChangeWalletTab

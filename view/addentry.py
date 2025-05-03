@@ -70,6 +70,7 @@ class AddEntryTab(QWidget):
             EntryController.getinstance().addentry(newentry)
             data.walletList[self.wallet_combobox.currentText()]=after
             functions.update_walletfile()
+            data.entryList.append(newentry)
             self.entryadded.emit(newentry)
             self.reset_fields()
 

@@ -14,16 +14,16 @@ class MainWindow(QMainWindow):
         super().__init__()
         self.setWindowTitle("Money Management")
 
-        self.wallettable=QTableView()
+        self.wallet_table=QTableView()
         self.model = QStandardItemModel()
         self.set_up_wallettable()
         self.fill_wallettable()
 
         self.tabs = QTabWidget()
-        self.addentrytab = AddEntryTab()
-        self.changewalletstab = ChangeWalletTab()
-        self.listentriestab = ListTab()
-        self.iotab = IOTab()
+        self.add_entry_tab = AddEntryTab()
+        self.change_wallets_tab = ChangeWalletTab()
+        self.list_entries_tab = ListTab()
+        self.io_tab = IOTab()
         self.set_up_tabs()
 
         self.connect_intertab_signals()
@@ -51,17 +51,17 @@ class MainWindow(QMainWindow):
                 NumStandardItem(str(item[1]))
             ]
             self.model.insertRow(0,row)
-        self.wallettable.sortByColumn(1, Qt.SortOrder.DescendingOrder)
+        self.wallet_table.sortByColumn(1, Qt.SortOrder.DescendingOrder)
         self.model.setHorizontalHeaderLabels(['Wallet', 'Amount'])
 
     def set_up_wallettable(self):
         """Format and set the basic attributes of the table that contains the wallets"""
-        self.wallettable.setSortingEnabled(True)
-        self.wallettable.horizontalHeader().setStretchLastSection(True)
-        self.wallettable.setModel(self.model)
-        self.wallettable.setFixedHeight(100)
-        self.wallettable.setEditTriggers(QAbstractItemView.EditTrigger.NoEditTriggers)
-        self.wallettable.setSelectionMode(QAbstractItemView.SelectionMode.NoSelection)
+        self.wallet_table.setSortingEnabled(True)
+        self.wallet_table.horizontalHeader().setStretchLastSection(True)
+        self.wallet_table.setModel(self.model)
+        self.wallet_table.setFixedHeight(100)
+        self.wallet_table.setEditTriggers(QAbstractItemView.EditTrigger.NoEditTriggers)
+        self.wallet_table.setSelectionMode(QAbstractItemView.SelectionMode.NoSelection)
 
     def connect_signals(self):
         """Connect the signals for the widgets of the main window"""
@@ -69,32 +69,32 @@ class MainWindow(QMainWindow):
 
     def connect_intertab_signals(self):
         """Connect the signals that are between tabs"""
-        self.changewalletstab.walletchanged.connect(self.addentrytab.update_walletcombobox)
-        self.changewalletstab.walletchanged.connect(self.changewalletstab.fill_walletcombobox)
-        self.changewalletstab.walletchanged.connect(self.fill_wallettable)
+        self.change_wallets_tab.walletchanged.connect(self.add_entry_tab.update_walletcombobox)
+        self.change_wallets_tab.walletchanged.connect(self.change_wallets_tab.fill_walletcombobox)
+        self.change_wallets_tab.walletchanged.connect(self.fill_wallettable)
 
-        self.iotab.dataimported.connect(self.fill_wallettable)
-        self.iotab.dataimported.connect(self.listentriestab.load_items)
-        self.iotab.dataimported.connect(self.addentrytab.update_walletcombobox)
-        self.iotab.dataimported.connect(self.changewalletstab.fill_walletcombobox)
+        self.io_tab.dataimported.connect(self.fill_wallettable)
+        self.io_tab.dataimported.connect(self.list_entries_tab.load_items)
+        self.io_tab.dataimported.connect(self.add_entry_tab.update_walletcombobox)
+        self.io_tab.dataimported.connect(self.change_wallets_tab.fill_walletcombobox)
 
-        self.iotab.datadeleted.connect(self.fill_wallettable)
-        self.iotab.datadeleted.connect(self.listentriestab.load_items)
-        self.iotab.datadeleted.connect(self.addentrytab.update_walletcombobox)
-        self.iotab.datadeleted.connect(self.changewalletstab.fill_walletcombobox)
+        self.io_tab.datadeleted.connect(self.fill_wallettable)
+        self.io_tab.datadeleted.connect(self.list_entries_tab.load_items)
+        self.io_tab.datadeleted.connect(self.add_entry_tab.update_walletcombobox)
+        self.io_tab.datadeleted.connect(self.change_wallets_tab.fill_walletcombobox)
 
-        self.addentrytab.entryadded.connect(self.fill_wallettable)
-        self.addentrytab.entryadded.connect(self.listentriestab.update_list)
+        self.add_entry_tab.entryadded.connect(self.fill_wallettable)
+        self.add_entry_tab.entryadded.connect(self.list_entries_tab.update_list)
 
     def set_up_tabs(self):
         """Set up the tabs of the main window"""
         self.tabs.setTabPosition(QTabWidget.TabPosition.North)
         self.tabs.setMovable(False)
 
-        self.tabs.addTab(self.listentriestab, tabnames.LISTENTRIES_TABNAME)
-        self.tabs.addTab(self.addentrytab, tabnames.ADDENTRY_TABNAME)
-        self.tabs.addTab(self.changewalletstab, tabnames.CHANGEWALLET_TABNAME)
-        self.tabs.addTab(self.iotab, tabnames.IO_TABNAME)
+        self.tabs.addTab(self.list_entries_tab, tabnames.LISTENTRIES_TABNAME)
+        self.tabs.addTab(self.add_entry_tab, tabnames.ADDENTRY_TABNAME)
+        self.tabs.addTab(self.change_wallets_tab, tabnames.CHANGEWALLET_TABNAME)
+        self.tabs.addTab(self.io_tab, tabnames.IO_TABNAME)
 
     def set_up_layout(self):
         """Set up the layout of the main window"""
@@ -104,7 +104,7 @@ class MainWindow(QMainWindow):
         self.setCentralWidget(layoutwidget)
         vbox.setContentsMargins(0, 0, 0, 0)
 
-        vbox.addWidget(self.wallettable)
+        vbox.addWidget(self.wallet_table)
         vbox.addWidget(self.tabs)
 
         layoutwidget.setLayout(vbox)

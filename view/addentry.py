@@ -19,7 +19,6 @@ class AddEntryTab(QWidget):
     """Class for tab that adds entries to the history"""
     size = QSize(450, 650)
 
-    print(2**31-1-2147483647)
     maxvalue=min(2147483647,sys.maxsize)
     entryadded = pyqtSignal(Entry, name="entryadded")
 

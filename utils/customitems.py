@@ -8,7 +8,8 @@ class NumStandardItem(QStandardItem):
     and sorting based on currency numbers, not strings"""
 
     def data(self, role=...):
-        """QStandardItem data method override for displaying Ft after currency"""
+        """QStandardItem data method override
+        for displaying Ft after currency"""
         if super().data(role) is not None:
             return QVariant(str(super().data(role)) + " Ft")
         return QVariant(None)

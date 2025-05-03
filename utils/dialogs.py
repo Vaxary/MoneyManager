@@ -1,15 +1,18 @@
 """Custom QDialog implementations for various usecases"""
 from PyQt6.QtCore import QSize, Qt
 from PyQt6.QtWidgets import (
-    QDialog, QDialogButtonBox, QVBoxLayout, QLabel, QGridLayout, QLineEdit, QTextEdit
+    QDialog, QDialogButtonBox, QVBoxLayout,
+    QLabel, QGridLayout, QLineEdit, QTextEdit
 )
+
 
 class AlertDialog(QDialog):
     """Custom QDialog implementation for alerting user of a mistake"""
     size = QSize(300, 100)
 
     def __init__(self, title, msg, parent=None):
-        """Initializing custom QDialog implementation for alerting user of a mistake"""
+        """Initializing custom QDialog implementation
+        for alerting user of a mistake"""
         super().__init__(parent)
         self.setWindowTitle(title)
         self.setFixedSize(self.size)
@@ -46,7 +49,8 @@ class SureDialog(QDialog):
         self.setFixedSize(self.size)
 
         self.button_box = QDialogButtonBox(
-                QDialogButtonBox.StandardButton.Ok | QDialogButtonBox.StandardButton.Cancel)
+                QDialogButtonBox.StandardButton.Ok |
+                QDialogButtonBox.StandardButton.Cancel)
         self.connect_signals()
         self.set_up_layout(msg)
 
@@ -62,6 +66,7 @@ class SureDialog(QDialog):
         layout.addWidget(message)
         layout.addWidget(self.button_box)
         self.setLayout(layout)
+
 
 class DetailsDialog(QDialog):
     """Custom QDialog implementation for
@@ -126,5 +131,6 @@ class DetailsDialog(QDialog):
         layout.addWidget(reason_label, 5, 0)
         layout.addWidget(reason_value, 5, 1)
 
-        layout.addWidget(self.button_box, 6, 0, 1, 2, Qt.AlignmentFlag.AlignCenter)
+        (layout.
+         addWidget(self.button_box, 6, 0, 1, 2, Qt.AlignmentFlag.AlignCenter))
         self.setLayout(layout)

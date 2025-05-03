@@ -1,8 +1,12 @@
 """Entry class containing necessary data for the other functions"""
+
+
 class Entry:
-    """Entry object that contains the "wallet" where the change happened,
+    """Entry object that contains
+     the "wallet" where the change happened,
      "amount" of change, amount "before" and "after" the change,
-     what was the "date" of the change and what was the "reason" for the change"""
+     what was the "date" of the change
+     and what was the "reason" for the change"""
     def __init__(self, params):
         """Initialize entry object with tuple containing parameters"""
         self._wallet = params[0]

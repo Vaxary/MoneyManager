@@ -15,11 +15,12 @@ from utils import data
 from utils import functions
 from controller.entrycontroller import EntryController
 
+
 class AddEntryTab(QWidget):
     """Class for tab that adds entries to the history"""
     size = QSize(450, 650)
 
-    maxvalue=min(2147483647,sys.maxsize)
+    maxvalue = min(2147483647, sys.maxsize)
     entryadded = pyqtSignal(Entry, name="entryadded")
 
     def __init__(self):
@@ -29,7 +30,7 @@ class AddEntryTab(QWidget):
         self.wallet_combobox = QComboBox()
         self.date_picker = QCalendarWidget()
         self.reason_lineedit = QTextEdit()
-        self.action_type_checkbox=QCheckBox("Spent")
+        self.action_type_checkbox = QCheckBox("Spent")
 
         self.reset_button = QPushButton("Reset")
         self.submit_button = QPushButton("Submit")
@@ -38,27 +39,34 @@ class AddEntryTab(QWidget):
         self.connect_signals()
         self.set_up_layout()
 
-
     def addentry(self):
         """Adds entry to the database if necessary data has been entered,
          if not it throws custom QDialog showing the error"""
-        if self.amount_spinbox.value()==0:
+        if self.amount_spinbox.value() == 0:
             dlg = AlertDialog(
                 "Error",
-                "Enter a valid amount in the amount field!",self
+                "Enter a valid amount in the amount field!",
+                self
             )
             dlg.exec()
-        elif self.wallet_combobox.currentIndex()==-1:
-            dlg = AlertDialog("Error", "Choose a wallet from the wallet combobox!", self)
+        elif self.wallet_combobox.currentIndex() == -1:
+            dlg = AlertDialog("Error",
+                              "Choose a wallet from the wallet combobox!",
+                              self)
             dlg.exec()
-        elif self.reason_lineedit.toPlainText()== "":
-            dlg = AlertDialog("Error", "Enter a reason in the reason field!", self)
+        elif self.reason_lineedit.toPlainText() == "":
+            dlg = AlertDialog("Error",
+                              "Enter a reason in the reason field!",
+                              self)
             dlg.exec()
         else:
-            amount= self.amount_spinbox.value() * -1 if\
-                self.action_type_checkbox.isChecked() else self.amount_spinbox.value()
-            after= data.walletList[self.wallet_combobox.currentText()] + amount
-            before=data.walletList[self.wallet_combobox.currentText()]
+            amount = self.amount_spinbox.value() * -1 if\
+                self.action_type_checkbox.isChecked() \
+                else self.amount_spinbox.value()
+            after = data.walletList[self.
+                                    wallet_combobox.currentText()] + amount
+            before = data.walletList[self.
+                                     wallet_combobox.currentText()]
             newentry = Entry((
                 self.wallet_combobox.currentText(),
                 amount,
@@ -68,7 +76,7 @@ class AddEntryTab(QWidget):
                 self.reason_lineedit.toPlainText()
             ))
             EntryController.getinstance().addentry(newentry)
-            data.walletList[self.wallet_combobox.currentText()]=after
+            data.walletList[self.wallet_combobox.currentText()] = after
             functions.update_walletfile()
             data.entryList.append(newentry)
             self.entryadded.emit(newentry)
@@ -85,10 +93,10 @@ class AddEntryTab(QWidget):
 
     def update_walletcombobox(self, deleted=False, wallet=None):
         """Updates wallet combobox items"""
-        chosen=self.wallet_combobox.currentText()
+        chosen = self.wallet_combobox.currentText()
         self.wallet_combobox.clear()
         self.wallet_combobox.addItems(data.walletList.keys())
-        if not deleted or (deleted and wallet!=chosen):
+        if not deleted or (deleted and wallet != chosen):
             if chosen != "" and chosen in data.walletList.keys():
                 self.wallet_combobox.setCurrentText(chosen)
             else:
@@ -96,18 +104,25 @@ class AddEntryTab(QWidget):
 
     def update_amountspinbox(self):
         """Updates amount spinbox maximum value based on wallet"""
-        if self.wallet_combobox.currentText()!= "":
+        if self.wallet_combobox.currentText() != "":
             if self.action_type_checkbox.isChecked():
-                self.amount_spinbox.setMaximum(data.walletList[self.wallet_combobox.currentText()])
+                (self.amount_spinbox.
+                 setMaximum(
+                    data.walletList[self.wallet_combobox.currentText()]))
             else:
-                self.amount_spinbox.setMaximum(self.maxvalue)
+                (self.amount_spinbox.
+                 setMaximum(self.maxvalue))
 
     def connect_signals(self):
         """Connects signals from widgets"""
-        self.wallet_combobox.currentTextChanged.connect(self.update_amountspinbox)
-        self.action_type_checkbox.checkStateChanged.connect(self.update_amountspinbox)
-        self.submit_button.clicked.connect(self.addentry)
-        self.reset_button.clicked.connect(self.reset_fields)
+        (self.wallet_combobox.currentTextChanged.
+         connect(self.update_amountspinbox))
+        (self.action_type_checkbox.checkStateChanged.
+         connect(self.update_amountspinbox))
+        (self.submit_button.clicked.
+         connect(self.addentry))
+        (self.reset_button.clicked.
+         connect(self.reset_fields))
 
     def set_up_widgets(self):
         """Sets up and formats widgets"""

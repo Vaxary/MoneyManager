@@ -20,11 +20,12 @@ class IOTab(QWidget):
     datadeleted = pyqtSignal(name="datadeleted")
 
     def __init__(self):
-        """Initializes class for tab that exports, imports and deletes history"""
+        """Initializes class for tab
+        that exports, imports and deletes history"""
         super().__init__()
-        self.exportbutton=QPushButton("Export")
-        self.importbutton=QPushButton("Import")
-        self.deletebutton=QPushButton("Delete History")
+        self.exportbutton = QPushButton("Export")
+        self.importbutton = QPushButton("Import")
+        self.deletebutton = QPushButton("Delete History")
 
         self.set_up_widgets()
 
@@ -38,7 +39,7 @@ class IOTab(QWidget):
     def export_history(self):
         """Shows dialog for choosing a path for the export json file
         then exports history and wallets to the given file and location"""
-        savedlg=QFileDialog(directory=paths.EXPORTFOLDERPATH)
+        savedlg = QFileDialog(directory=paths.EXPORTFOLDERPATH)
         savedlg.setDefaultSuffix("json")
         savedlg.setFilter(savedlg.filter())
         savedlg.setAcceptMode(QFileDialog.AcceptMode.AcceptSave)
@@ -50,8 +51,11 @@ class IOTab(QWidget):
 
     def import_history(self):
         """Shows dialog for selecting an exported json file
-                then replaces current data with history and wallets from the file to the database"""
-        dlg = SureDialog("Importing","Are you sure? This will replace the current history!")
+        then replaces current data with
+        history and wallets from the file to the database"""
+        dlg = SureDialog("Importing",
+                         "Are you sure? "
+                         "This will replace the current history!")
         if dlg.exec():
             savedlg = QFileDialog(directory=paths.EXPORTFOLDERPATH)
             savedlg.setDefaultSuffix("json")
@@ -80,8 +84,11 @@ class IOTab(QWidget):
         self.deletebutton.clicked.connect(self.reset_history)
 
     def reset_history(self):
-        """Deletes history from the database and wallets from the wallet json file"""
-        dlg = SureDialog("Deleting History", "Are you sure? This will delete the current history!")
+        """Deletes history from the database
+        and wallets from the wallet json file"""
+        dlg = SureDialog("Deleting History",
+                         "Are you sure? "
+                         "This will delete the current history!")
         if dlg.exec():
             EntryController.getinstance().deletehistory()
             EntryController.getinstance().initializedb()

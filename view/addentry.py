@@ -11,8 +11,7 @@ from PyQt6.QtWidgets import (
 
 from utils.entry import Entry
 from utils.dialogs import AlertDialog
-from utils import data
-from utils import functions
+from utils import data, iofunctions
 from controller.entrycontroller import EntryController
 
 
@@ -77,7 +76,7 @@ class AddEntryTab(QWidget):
             ))
             EntryController.getinstance().addentry(newentry)
             data.walletList[self.wallet_combobox.currentText()] = after
-            functions.update_walletfile()
+            iofunctions.update_walletfile()
             data.entryList.append(newentry)
             self.entryadded.emit(newentry)
             self.reset_fields()

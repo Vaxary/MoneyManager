@@ -7,7 +7,7 @@ from PyQt6.QtWidgets import QWidget, QPushButton, QFileDialog, QGridLayout
 
 from utils import paths
 from utils.dialogs import SureDialog
-from utils import functions
+from utils import iofunctions
 from utils import data
 from controller.entrycontroller import EntryController
 
@@ -47,7 +47,7 @@ class IOTab(QWidget):
         savedlg.selectFile("export"+datetime.date.today().isoformat()+".json")
         savedlg.setNameFilters(['JSON (*.json)'])
         if savedlg.exec() and savedlg.selectedFiles()[0].endswith(".json"):
-            functions.export_history_and_wallets(savedlg.selectedFiles()[0])
+            iofunctions.export_history_and_wallets(savedlg.selectedFiles()[0])
 
     def import_history(self):
         """Shows dialog for selecting an exported json file
@@ -65,7 +65,7 @@ class IOTab(QWidget):
             savedlg.setNameFilters(['JSON (*.json)'])
             if savedlg.exec() and savedlg.selectedFiles()[0].endswith(".json"):
                 if Path.is_file(Path(savedlg.selectedFiles()[0])):
-                    functions.import_exportfile(savedlg.selectedFiles()[0])
+                    iofunctions.import_exportfile(savedlg.selectedFiles()[0])
                     self.dataimported.emit()
 
     def set_up_widgets(self):
@@ -93,7 +93,7 @@ class IOTab(QWidget):
             EntryController.getinstance().deletehistory()
             EntryController.getinstance().initializedb()
             data.walletList.clear()
-            functions.update_walletfile()
+            iofunctions.update_walletfile()
             data.entryList.clear()
             self.datadeleted.emit()
 

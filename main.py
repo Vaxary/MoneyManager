@@ -6,7 +6,7 @@ from PyQt6.QtWidgets import (
     QAbstractItemView, QWidget, QVBoxLayout, QApplication
 )
 
-from utils import (tabnames, functions, data)
+from utils import (tabnames, data, iofunctions)
 from utils.customitems import CaseInsensitiveStandardItem, NumStandardItem
 from view.addentry import AddEntryTab
 from view.changewallets import ChangeWalletTab
@@ -137,8 +137,8 @@ class MainWindow(QMainWindow):
 
 
 if __name__ == '__main__':
-    functions.initialize_files_and_dirs()
-    functions.load_initialdata()
+    iofunctions.initialize_files_and_dirs()
+    iofunctions.load_initialdata()
     app = QApplication([])
     window = MainWindow()
     window.show()

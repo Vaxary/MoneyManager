@@ -5,8 +5,7 @@ from PyQt6.QtWidgets import (
 )
 
 from utils.dialogs import AlertDialog
-from utils import data
-from utils import functions
+from utils import data, iofunctions
 
 
 class ChangeWalletTab(QWidget):
@@ -47,7 +46,7 @@ class ChangeWalletTab(QWidget):
             dlg.exec()
         else:
             del data.walletList[self.delete_wallet_combobox.currentText()]
-            functions.update_walletfile()
+            iofunctions.update_walletfile()
             (self.walletchanged.
              emit(True, self.delete_wallet_combobox.currentText()))
             self.delete_wallet_combobox.setCurrentIndex(-1)
@@ -67,7 +66,7 @@ class ChangeWalletTab(QWidget):
             dlg.exec()
         else:
             data.walletList[self.add_wallet_lineedit.text()] = 0
-            functions.update_walletfile()
+            iofunctions.update_walletfile()
             self.walletchanged.emit(False, self.add_wallet_lineedit.text())
             self.add_wallet_lineedit.setText("")
 

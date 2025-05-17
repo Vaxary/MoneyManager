@@ -16,6 +16,11 @@ class Entry:
         self._date = params[4]
         self._reason = params[5]
 
+    def __eq__(self, other):
+        return (self.wallet == other.wallet and self.amount == other.amount and
+                self.before == other.before and self.after == other.after and
+                self.date == other.date and self.reason == other.reason)
+
     @property
     def amount(self):
         """amount field getter"""

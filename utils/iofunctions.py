@@ -33,7 +33,6 @@ def load_initialdata():
     data.entryList = EntryController.getinstance().listentries()
 
 
-
 def import_exportfile(src):
     """Imports and loads data of exported persistent json file
         containing the contents of both the wallet and the history"""

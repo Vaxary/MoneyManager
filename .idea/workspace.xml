@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d7a0d3fd-4fa5-45b0-8965-d5b7930c2283" name="Changes" comment="correct flake8 errors">
+    <list default="true" id="d7a0d3fd-4fa5-45b0-8965-d5b7930c2283" name="Changes" comment="tests for customitems and dao">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/functions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/addentry.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/addentry.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/changewallets.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/changewallets.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/iotab.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/iotab.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.pylintrc" beforeDir="false" afterPath="$PROJECT_DIR$/.pylintrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_module_customitems.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_module_customitems.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_module_dao.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_module_dao.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/entry.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/entry.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/iofunctions.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/iofunctions.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,37 +62,47 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python tests.Python tests for test_module_customitems.TestNumAndCaseInsensitiveStandardItem.testNumStandardItemsAllTrue.executor": "Run",
-    "Python tests.Python tests for test_module_customitems.TestNumStandardItem.executor": "Run",
-    "Python tests.Python tests for test_module_customitems.TestNumStandardItem.testAllFalse.executor": "Run",
-    "Python tests.Python tests for test_module_customitems.TestNumStandardItem.testAllTrue.executor": "Run",
-    "Python tests.Python tests for test_module_customitems.TestNumStandardItem.testMindHamis.executor": "Run",
-    "Python tests.Python tests for test_module_customitems.TestNumStandardItem.testMindIgaz.executor": "Run",
-    "Python tests.Python tests for test_module_customitems.TestNumStandardItem.testNumStandardItemsAllFalse.executor": "Run",
-    "Python tests.Python tests for test_module_entrycontroller.TestDAO.executor": "Run",
-    "Python.app.executor": "Run",
-    "Python.app2.contextmenu.executor": "Run",
-    "Python.app2.contextmenu_signal.executor": "Debug",
-    "Python.app2.events.executor": "Run",
-    "Python.app2.executor": "Run",
-    "Python.app2.qline.executor": "Run",
-    "Python.app3.allwidgets.executor": "Run",
-    "Python.app3.usedwidgets.executor": "Run",
-    "Python.app4.layouts.executor": "Run",
-    "Python.app4.tabwidget.executor": "Run",
-    "Python.customitems.executor": "Run",
-    "Python.dialogs.executor": "Run",
-    "Python.main (1).executor": "Run",
-    "Python.main.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/home/vaxary/HDD/Classes/Egyetem/4.semester/Pythonagyakban/bank",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python tests.Python tests for test_module_customitems.TestNumAndCaseInsensitiveStandardItem.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_module_customitems.TestNumAndCaseInsensitiveStandardItem.testNumStandardItemsAllTrue.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_module_customitems.TestNumStandardItem.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_module_customitems.TestNumStandardItem.testAllFalse.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_module_customitems.TestNumStandardItem.testAllTrue.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_module_customitems.TestNumStandardItem.testMindHamis.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_module_customitems.TestNumStandardItem.testMindIgaz.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_module_customitems.TestNumStandardItem.testNumStandardItemsAllFalse.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_module_entrycontroller.TestDAO.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_module_entrycontroller.TestDAO.test_dao_creation_addition_and_read.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_module_entrycontroller.TestDAO.test_dao_creation_and_read.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_module_entrycontroller.TestDAO.test_dao_creation_and_reading.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_module_entrycontroller.TestDAO.test_dao_deletion.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_module_entrycontroller.TestDAOAdd.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_module_entrycontroller.TestDAOCreate.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_module_entrycontroller.TestDAODelete.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_module_entrycontroller.TestDAOImport.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_module_entrycontroller.TestDAOImport.test_dao_creation_addition_and_read.executor&quot;: &quot;Run&quot;,
+    &quot;Python.app.executor&quot;: &quot;Run&quot;,
+    &quot;Python.app2.contextmenu.executor&quot;: &quot;Run&quot;,
+    &quot;Python.app2.contextmenu_signal.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.app2.events.executor&quot;: &quot;Run&quot;,
+    &quot;Python.app2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.app2.qline.executor&quot;: &quot;Run&quot;,
+    &quot;Python.app3.allwidgets.executor&quot;: &quot;Run&quot;,
+    &quot;Python.app3.usedwidgets.executor&quot;: &quot;Run&quot;,
+    &quot;Python.app4.layouts.executor&quot;: &quot;Run&quot;,
+    &quot;Python.app4.tabwidget.executor&quot;: &quot;Run&quot;,
+    &quot;Python.customitems.executor&quot;: &quot;Run&quot;,
+    &quot;Python.dialogs.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/vaxary/HDD/Classes/Egyetem/4.semester/Pythonagyakban/bank&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -103,30 +113,8 @@
       <recent name="$PROJECT_DIR$/utils/objects" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Python tests for test_module_customitems.TestNumAndCaseInsensitiveStandardItem">
-    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="bank" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Python tests for test_module_customitems.TestNumAndCaseInsensitiveStandardItem" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python tests.Python tests for tests.test_module_dao.TestDAOAdd">
+    <configuration name="Python tests for tests.test_module_dao.TestDAOAdd" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="bank" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -137,11 +125,11 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_module_customitems.TestNumAndCaseInsensitiveStandardItem&quot;" />
+      <option name="_new_target" value="&quot;tests.test_module_dao.TestDAOAdd&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for test_module_customitems.TestNumAndCaseInsensitiveStandardItem.testNumStandardItemsAllTrue" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for tests.test_module_dao.TestDAOCreate" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="bank" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -152,11 +140,11 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_module_customitems.TestNumAndCaseInsensitiveStandardItem.testNumStandardItemsAllTrue&quot;" />
+      <option name="_new_target" value="&quot;tests.test_module_dao.TestDAOCreate&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for test_module_customitems.TestNumStandardItem" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for tests.test_module_dao.TestDAODelete" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="bank" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -167,11 +155,11 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_module_customitems.TestNumStandardItem&quot;" />
+      <option name="_new_target" value="&quot;tests.test_module_dao.TestDAODelete&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for test_module_entrycontroller.TestDAO" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for tests.test_module_dao.TestDAOImport" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="bank" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -182,17 +170,32 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_module_entrycontroller.TestDAO&quot;" />
+      <option name="_new_target" value="&quot;tests.test_module_dao.TestDAOImport&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for tests.test_module_dao.TestDAOImport.test_dao_creation_addition_and_read" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="bank" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;tests.test_module_dao.TestDAOImport.test_dao_creation_addition_and_read&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Python tests for test_module_customitems.TestNumAndCaseInsensitiveStandardItem" />
-        <item itemvalue="Python tests.Python tests for test_module_customitems.TestNumAndCaseInsensitiveStandardItem.testNumStandardItemsAllTrue" />
-        <item itemvalue="Python tests.Python tests for test_module_entrycontroller.TestDAO" />
-        <item itemvalue="Python.main" />
-        <item itemvalue="Python tests.Python tests for test_module_customitems.TestNumStandardItem" />
+        <item itemvalue="Python tests.Python tests for tests.test_module_dao.TestDAOImport" />
+        <item itemvalue="Python tests.Python tests for tests.test_module_dao.TestDAOAdd" />
+        <item itemvalue="Python tests.Python tests for tests.test_module_dao.TestDAODelete" />
+        <item itemvalue="Python tests.Python tests for tests.test_module_dao.TestDAOCreate" />
+        <item itemvalue="Python tests.Python tests for tests.test_module_dao.TestDAOImport.test_dao_creation_addition_and_read" />
       </list>
     </recent_temporary>
   </component>
@@ -301,7 +304,39 @@
       <option name="project" value="LOCAL" />
       <updated>1746306765135</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="split functions into functions and iofunctions">
+      <option name="closed" value="true" />
+      <created>1746351652261</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1746351652261</updated>
+    </task>
+    <task id="LOCAL-00014" summary="split functions into functions and iofunctions">
+      <option name="closed" value="true" />
+      <created>1746351697050</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1746351697050</updated>
+    </task>
+    <task id="LOCAL-00015" summary="split functions into functions and iofunctions">
+      <option name="closed" value="true" />
+      <created>1746353640444</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1746353640444</updated>
+    </task>
+    <task id="LOCAL-00016" summary="tests for customitems and dao">
+      <option name="closed" value="true" />
+      <created>1746353657142</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1746353657142</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -376,6 +411,8 @@
     <MESSAGE value="update gitignore" />
     <MESSAGE value="correct pylint errors" />
     <MESSAGE value="correct flake8 errors" />
-    <option name="LAST_COMMIT_MESSAGE" value="correct flake8 errors" />
+    <MESSAGE value="split functions into functions and iofunctions" />
+    <MESSAGE value="tests for customitems and dao" />
+    <option name="LAST_COMMIT_MESSAGE" value="tests for customitems and dao" />
   </component>
 </project>

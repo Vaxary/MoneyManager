@@ -1,6 +1,6 @@
 """Data Access Object class"""
 import sqlite3
-from utils import functions
+from moneymanager.utils import functions
 
 
 class DAO:

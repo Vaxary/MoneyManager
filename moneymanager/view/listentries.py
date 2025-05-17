@@ -3,10 +3,10 @@ from PyQt6.QtCore import Qt, QSize, QModelIndex
 from PyQt6.QtGui import QStandardItemModel
 from PyQt6.QtWidgets import QWidget, QTableView, QAbstractItemView, QVBoxLayout
 
-from utils.entry import Entry
-from utils.dialogs import DetailsDialog
-from utils import functions
-from utils import data
+from moneymanager.utils.entry import Entry
+from moneymanager.utils.dialogs import DetailsDialog
+from moneymanager.utils import functions
+from moneymanager import data
 
 
 class ListTab(QWidget):
@@ -47,7 +47,7 @@ class ListTab(QWidget):
         """Fills the table that shows
         the history entries with the stored entries"""
         self.model.clear()
-        for entry in data.entryList:
+        for entry in data.entry_list:
             self.model.insertRow(0, functions.
                                  create_tablerow_from_entry(entry))
         self.resize_table()

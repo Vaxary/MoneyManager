@@ -6,13 +6,13 @@ from PyQt6.QtWidgets import (
     QAbstractItemView, QWidget, QVBoxLayout, QApplication
 )
 
-from utils import (tabnames, data, iofunctions)
-from utils.customitems import CaseInsensitiveStandardItem, NumStandardItem
-from view.addentry import AddEntryTab
-from view.changewallets import ChangeWalletTab
-from view.listentries import ListTab
-from view.iotab import IOTab
-
+from moneymanager import data
+from moneymanager.utils.customitems import CaseInsensitiveStandardItem, NumStandardItem
+from moneymanager.view.addentry import AddEntryTab
+from moneymanager.view.changewallets import ChangeWalletTab
+from moneymanager.view.listentries import ListTab
+from moneymanager.view.iotab import IOTab
+from moneymanager.utils import (tabnames, iofunctions)
 
 class MainWindow(QMainWindow):
     """Main window of the app"""
@@ -51,7 +51,7 @@ class MainWindow(QMainWindow):
     def fill_wallettable(self):
         """Fill the table that contains the wallets with data"""
         self.model.clear()
-        for item in data.walletList.items():
+        for item in data.wallet_list.items():
             row = [
                 CaseInsensitiveStandardItem(item[0]),
                 NumStandardItem(str(item[1]))
@@ -142,9 +142,9 @@ if __name__ == '__main__':
     app = QApplication([])
     window = MainWindow()
     window.show()
-    if len(data.walletList) == 0:
+    if len(data.wallet_list) == 0:
         window.tabs.setCurrentIndex(2)
-    elif len(data.entryList) == 0:
+    elif len(data.entry_list) == 0:
         window.tabs.setCurrentIndex(1)
     else:
         window.tabs.setCurrentIndex(0)

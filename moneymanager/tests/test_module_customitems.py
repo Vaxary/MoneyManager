@@ -3,8 +3,8 @@ import unittest
 
 from PyQt6.QtGui import QStandardItemModel
 
-from utils.customitems import (NumStandardItem,
-                               CaseInsensitiveStandardItem)
+from moneymanager.utils.customitems import (NumStandardItem,
+                                            CaseInsensitiveStandardItem)
 
 
 class TestNumAndCaseInsensitiveStandardItem(unittest.TestCase):

@@ -9,10 +9,11 @@ from PyQt6.QtWidgets import (
     QGridLayout, QTextEdit
 )
 
-from utils.entry import Entry
-from utils.dialogs import AlertDialog
-from utils import data, iofunctions
-from controller.entrycontroller import EntryController
+from moneymanager.utils.entry import Entry
+from moneymanager.utils.dialogs import AlertDialog
+from moneymanager.utils import iofunctions
+from moneymanager import data
+from moneymanager.controller.entrycontroller import EntryController
 
 
 class AddEntryTab(QWidget):
@@ -62,9 +63,9 @@ class AddEntryTab(QWidget):
             amount = self.amount_spinbox.value() * -1 if\
                 self.action_type_checkbox.isChecked() \
                 else self.amount_spinbox.value()
-            after = data.walletList[self.
+            after = data.wallet_list[self.
                                     wallet_combobox.currentText()] + amount
-            before = data.walletList[self.
+            before = data.wallet_list[self.
                                      wallet_combobox.currentText()]
             newentry = Entry((
                 self.wallet_combobox.currentText(),
@@ -75,9 +76,9 @@ class AddEntryTab(QWidget):
                 self.reason_lineedit.toPlainText()
             ))
             EntryController.getinstance().addentry(newentry)
-            data.walletList[self.wallet_combobox.currentText()] = after
+            data.wallet_list[self.wallet_combobox.currentText()] = after
             iofunctions.update_walletfile()
-            data.entryList.append(newentry)
+            data.entry_list.append(newentry)
             self.entryadded.emit(newentry)
             self.reset_fields()
 
@@ -94,9 +95,9 @@ class AddEntryTab(QWidget):
         """Updates wallet combobox items"""
         chosen = self.wallet_combobox.currentText()
         self.wallet_combobox.clear()
-        self.wallet_combobox.addItems(data.walletList.keys())
+        self.wallet_combobox.addItems(data.wallet_list.keys())
         if not deleted or (deleted and wallet != chosen):
-            if chosen != "" and chosen in data.walletList.keys():
+            if chosen != "" and chosen in data.wallet_list.keys():
                 self.wallet_combobox.setCurrentText(chosen)
             else:
                 self.wallet_combobox.setCurrentIndex(-1)
@@ -107,7 +108,7 @@ class AddEntryTab(QWidget):
             if self.action_type_checkbox.isChecked():
                 (self.amount_spinbox.
                  setMaximum(
-                    data.walletList[self.wallet_combobox.currentText()]))
+                    data.wallet_list[self.wallet_combobox.currentText()]))
             else:
                 (self.amount_spinbox.
                  setMaximum(self.maxvalue))
@@ -128,7 +129,7 @@ class AddEntryTab(QWidget):
         self.amount_spinbox.setMinimum(0)
         self.amount_spinbox.setMaximum(self.maxvalue)
         self.amount_spinbox.setFixedWidth(105)
-        self.wallet_combobox.addItems(data.walletList.keys())
+        self.wallet_combobox.addItems(data.wallet_list.keys())
         self.wallet_combobox.setCurrentIndex(-1)
         self.action_type_checkbox.setCursor(Qt.CursorShape.PointingHandCursor)
         self.action_type_checkbox.setFixedWidth(55)

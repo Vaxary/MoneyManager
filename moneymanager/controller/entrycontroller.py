@@ -1,6 +1,6 @@
 """Entry controller class"""
-from model.dao import DAO
-from utils.paths import HISTORYDATABASEPATH
+from moneymanager.model.dao import DAO
+from moneymanager.utils.paths import HISTORYDATABASEPATH
 
 
 class EntryController:

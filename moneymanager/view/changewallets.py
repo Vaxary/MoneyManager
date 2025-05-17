@@ -4,8 +4,9 @@ from PyQt6.QtWidgets import (
     QWidget, QComboBox, QPushButton, QLineEdit, QGridLayout
 )
 
-from utils.dialogs import AlertDialog
-from utils import data, iofunctions
+from moneymanager.utils.dialogs import AlertDialog
+from moneymanager.utils import iofunctions
+from moneymanager import data
 
 
 class ChangeWalletTab(QWidget):
@@ -39,13 +40,13 @@ class ChangeWalletTab(QWidget):
                               "Choose a wallet from the wallet combobox!",
                               self)
             dlg.exec()
-        elif data.walletList[self.delete_wallet_combobox.currentText()] != 0:
+        elif data.wallet_list[self.delete_wallet_combobox.currentText()] != 0:
             dlg = AlertDialog("Error",
                               "The chosen wallet is not empty!",
                               self)
             dlg.exec()
         else:
-            del data.walletList[self.delete_wallet_combobox.currentText()]
+            del data.wallet_list[self.delete_wallet_combobox.currentText()]
             iofunctions.update_walletfile()
             (self.walletchanged.
              emit(True, self.delete_wallet_combobox.currentText()))
@@ -59,13 +60,13 @@ class ChangeWalletTab(QWidget):
                               "Enter the name of the new wallet!",
                               self)
             dlg.exec()
-        elif self.add_wallet_lineedit.text() in data.walletList.keys():
+        elif self.add_wallet_lineedit.text() in data.wallet_list.keys():
             dlg = AlertDialog("Error",
                               "Wallet already exists!",
                               self)
             dlg.exec()
         else:
-            data.walletList[self.add_wallet_lineedit.text()] = 0
+            data.wallet_list[self.add_wallet_lineedit.text()] = 0
             iofunctions.update_walletfile()
             self.walletchanged.emit(False, self.add_wallet_lineedit.text())
             self.add_wallet_lineedit.setText("")
@@ -74,9 +75,9 @@ class ChangeWalletTab(QWidget):
         """Fills wallet combobox with stored wallets"""
         chosen = self.delete_wallet_combobox.currentText()
         self.delete_wallet_combobox.clear()
-        self.delete_wallet_combobox.addItems(data.walletList.keys())
+        self.delete_wallet_combobox.addItems(data.wallet_list.keys())
         if not deleted or (deleted and wallet != chosen):
-            if chosen != "" and chosen in data.walletList.keys():
+            if chosen != "" and chosen in data.wallet_list.keys():
                 self.delete_wallet_combobox.setCurrentText(chosen)
             else:
                 self.delete_wallet_combobox.setCurrentIndex(-1)

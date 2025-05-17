@@ -1,6 +1,6 @@
 """Various functions needed to manage data"""
-from utils.customitems import CaseInsensitiveStandardItem, NumStandardItem
-from utils.entry import Entry
+from moneymanager.utils.customitems import CaseInsensitiveStandardItem, NumStandardItem
+from moneymanager.utils.entry import Entry
 
 
 def create_entry_from_db(row):

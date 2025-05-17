@@ -2,8 +2,8 @@
 import unittest
 import os
 
-from controller.entrycontroller import DAO
-from utils.entry import Entry
+from moneymanager.controller.entrycontroller import DAO
+from moneymanager.utils.entry import Entry
 
 
 class TestDAOCreate(unittest.TestCase):

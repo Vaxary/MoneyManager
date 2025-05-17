@@ -5,11 +5,11 @@ from pathlib import Path
 from PyQt6.QtCore import QSize, Qt, pyqtSignal
 from PyQt6.QtWidgets import QWidget, QPushButton, QFileDialog, QGridLayout
 
-from utils import paths
-from utils.dialogs import SureDialog
-from utils import iofunctions
-from utils import data
-from controller.entrycontroller import EntryController
+from moneymanager.utils import paths
+from moneymanager.utils.dialogs import SureDialog
+from moneymanager.utils import iofunctions
+from moneymanager import data
+from moneymanager.controller.entrycontroller import EntryController
 
 
 class IOTab(QWidget):
@@ -92,9 +92,9 @@ class IOTab(QWidget):
         if dlg.exec():
             EntryController.getinstance().deletehistory()
             EntryController.getinstance().initializedb()
-            data.walletList.clear()
+            data.wallet_list.clear()
             iofunctions.update_walletfile()
-            data.entryList.clear()
+            data.entry_list.clear()
             self.datadeleted.emit()
 
     def set_up_layot(self):

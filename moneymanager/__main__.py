@@ -1,4 +1,5 @@
 """Main window class and base functions of the app"""
+
 from PyQt6.QtCore import Qt
 from PyQt6.QtGui import QStandardItemModel
 from PyQt6.QtWidgets import (
@@ -7,12 +8,16 @@ from PyQt6.QtWidgets import (
 )
 
 from moneymanager import data
-from moneymanager.utils.customitems import CaseInsensitiveStandardItem, NumStandardItem
+from moneymanager.utils.customitems import (
+    CaseInsensitiveStandardItem,
+    NumStandardItem
+)
 from moneymanager.view.addentry import AddEntryTab
 from moneymanager.view.changewallets import ChangeWalletTab
 from moneymanager.view.listentries import ListTab
 from moneymanager.view.iotab import IOTab
 from moneymanager.utils import (tabnames, iofunctions)
+
 
 class MainWindow(QMainWindow):
     """Main window of the app"""

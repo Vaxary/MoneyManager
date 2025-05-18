@@ -1,13 +1,13 @@
 [
     {
         "type": "refactor",
-        "module": "tests.test_module_customitems",
+        "module": "moneymanager.tests.test_module_customitems",
         "obj": "TestNumAndCaseInsensitiveStandardItem",
         "line": 10,
         "column": 0,
         "endLine": 10,
         "endColumn": 43,
-        "path": "tests/test_module_customitems.py",
+        "path": "moneymanager/tests/test_module_customitems.py",
         "symbol": "too-many-instance-attributes",
         "message": "Too many instance attributes (17/7)",
         "message-id": "R0902"

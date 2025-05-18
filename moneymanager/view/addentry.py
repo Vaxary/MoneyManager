@@ -63,10 +63,9 @@ class AddEntryTab(QWidget):
             amount = self.amount_spinbox.value() * -1 if\
                 self.action_type_checkbox.isChecked() \
                 else self.amount_spinbox.value()
-            after = data.wallet_list[self.
-                                    wallet_combobox.currentText()] + amount
-            before = data.wallet_list[self.
-                                     wallet_combobox.currentText()]
+            after = (data.wallet_list[self.wallet_combobox.currentText()]
+                     + amount)
+            before = data.wallet_list[self.wallet_combobox.currentText()]
             newentry = Entry((
                 self.wallet_combobox.currentText(),
                 amount,

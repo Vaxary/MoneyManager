@@ -1,5 +1,7 @@
 """Various functions needed to manage data"""
-from moneymanager.utils.customitems import CaseInsensitiveStandardItem, NumStandardItem
+from moneymanager.utils.customitems import (
+    CaseInsensitiveStandardItem, NumStandardItem
+)
 from moneymanager.utils.entry import Entry
 
 

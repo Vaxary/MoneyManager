@@ -6,7 +6,11 @@ from pathlib import Path
 from moneymanager.controller.entrycontroller import EntryController
 from moneymanager import data
 from moneymanager.utils.entry import Entry
-from moneymanager.utils.paths import WALLETFILEPATH, EXPORTFOLDERPATH, DATAFOLDERPATH
+from moneymanager.utils.paths import (
+    WALLETFILEPATH,
+    EXPORTFOLDERPATH,
+    DATAFOLDERPATH
+)
 
 
 def initialize_files_and_dirs():
